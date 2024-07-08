@@ -15,7 +15,7 @@ export default function RootLayout({
       <body>
         <AppWalletProvider>
           {" "}
-          <div className="py-4 px-24">
+          <div className="py-4 px-20">
             <NavBar />
           </div>
           {children}
