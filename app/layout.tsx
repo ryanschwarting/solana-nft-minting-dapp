@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import AppWalletProvider from "./components/AppWalletProvider";
 import { NavBar } from "./components/NavBar";
-import { LandingPage } from "./components/LandingPage";
 
 export default function RootLayout({
   children,
@@ -14,7 +12,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppWalletProvider>
-          {" "}
           <div className="py-4 px-20">
             <NavBar />
           </div>
