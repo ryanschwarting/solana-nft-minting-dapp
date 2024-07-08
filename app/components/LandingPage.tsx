@@ -13,6 +13,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { IoClose } from "react-icons/io5";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const CANDY_MACHINE_ID = new PublicKey(
   "EUjKVfRz1PZLS4PkiGy296tTHgxPR8RkkqYEBSzu55U1"
@@ -166,19 +167,21 @@ export const LandingPage = () => {
               </p>
             )}
             {txError && <p>{txError}</p>}
-            <button
-              className="bg-sol-green text-black text-[24px] py-4 px-20 rounded-lg font-bold"
+            <motion.button
+              whileHover={{ scale: 0.9 }}
+              whileTap={{ scale: 0.8 }}
+              className="bg-sol-green text-black text-[24px] py-4 px-20 rounded-lg font-bold shadow-2xl shadow-sol-purple hover:shadow-none"
               onClick={mint}
               disabled={!wallet || txLoading || soldOut}
             >
               {soldOut ? "SOLD OUT" : txLoading ? "LOADING" : "MINT"}
-            </button>
+            </motion.button>
           </div>
         )
       )}
       {showModal && mintResult && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
-          <div className="relative justify-center bg-black rple p-6 rounded-lg shadow-2xl shadow-sol-green w-[800px]">
+          <div className="relative justify-center bg-black rple p-6 rounded-lg shadow-2xl shadow-sol-purple w-[800px]">
             <div className="flex flex-col justify-center items-center gap-2">
               <button
                 className="absolute top-0 right-0 m-4 text-gray-500 hover:text-gray-700"
@@ -209,7 +212,7 @@ export const LandingPage = () => {
                 href={`https://solscan.io/tx/${mintResult.transactionId}?cluster=devnet`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sol-green underline text-[12px] font-light pb-2"
+                className="text-sol-purple underline text-[12px] font-light pb-2"
               >
                 {mintResult.transactionId}
               </a>
@@ -225,7 +228,7 @@ export const LandingPage = () => {
           </div>
         </div>
       )}
-      <div className="text-center pr-20">
+      <div className="text-center pr-20 pt-2">
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-1 row-span-2 flex flex-col justify-between pt-10">
             <Image
@@ -233,14 +236,14 @@ export const LandingPage = () => {
               alt="Image 1"
               width={150}
               height={150}
-              className="w-full h-auto mb-4 shadow-2xl shadow-sol-green rounded-md"
+              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-md"
             />
             <Image
               src="/2.png"
               alt="Image 2"
               width={150}
               height={150}
-              className="w-full h-auto shadow-2xl shadow-sol-green rounded-md"
+              className="w-full h-auto shadow-2xl shadow-sol-purple rounded-md"
             />
           </div>
           <div className="col-span-1 row-span-3 flex flex-col justify-between">
@@ -249,21 +252,21 @@ export const LandingPage = () => {
               alt="Image 3"
               width={150}
               height={150}
-              className="w-full h-auto mb-4 shadow-2xl shadow-sol-green rounded-md"
+              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-md"
             />
             <Image
               src="/4.png"
               alt="Image 4"
               width={150}
               height={150}
-              className="w-full h-auto mb-4 shadow-2xl shadow-sol-green rounded-md"
+              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-md"
             />
             <Image
               src="/5.png"
               alt="Image 5"
               width={150}
               height={150}
-              className="w-full h-auto shadow-2xl shadow-sol-green rounded-md"
+              className="w-full h-auto shadow-2xl shadow-sol-purple rounded-md"
             />
           </div>
           <div className="col-span-1 row-span-2 flex flex-col justify-between pt-10">
@@ -272,14 +275,14 @@ export const LandingPage = () => {
               alt="Image 6"
               width={150}
               height={150}
-              className="w-full h-auto mb-4  shadow-2xl shadow-sol-green rounded-md"
+              className="w-full h-auto mb-4  shadow-2xl shadow-sol-purple rounded-md"
             />
             <Image
               src="/7.png"
               alt="Image 7"
               width={150}
               height={150}
-              className="w-full h-auto shadow-2xl shadow-sol-green rounded-md"
+              className="w-full h-auto shadow-2xl shadow-sol-purple rounded-md"
             />
           </div>
         </div>
