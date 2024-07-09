@@ -14,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { IoClose } from "react-icons/io5";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Confetti from "react-confetti";
 
 const CANDY_MACHINE_ID = new PublicKey(
   "EUjKVfRz1PZLS4PkiGy296tTHgxPR8RkkqYEBSzu55U1"
@@ -180,55 +181,61 @@ export const LandingPage = () => {
         )
       )}
       {showModal && mintResult && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
-          <div className="relative justify-center bg-black rple p-6 rounded-lg shadow-2xl shadow-sol-purple w-[800px]">
-            <div className="flex flex-col justify-center items-center gap-2">
-              <motion.button
-                whileHover={{ scale: 0.9 }}
-                whileTap={{ scale: 0.8 }}
-                className="absolute top-0 right-0 m-4 text-gray-500 hover:text-gray-700"
-                onClick={() => setShowModal(false)}
-              >
-                <IoClose className="w-[30px] h-[30px] text-white" />
-              </motion.button>
-              <h2 className="text-[24px] font-bold mb-4 text-white">
-                MINT SUCCESSFUL!{" "}
-              </h2>
+        <>
+          <div className="fixed inset-0 z-50 overflow-hidden">
+            <Confetti width={window.innerWidth} height={window.innerHeight} />
+          </div>
 
-              <p className="text-white text-[16px] font-bold">
-                COLLECTIBLE NAME:
-              </p>
-              <p className="text-white text-[14px] font-light uppercase">
-                {mintResult.nftName}
-              </p>
-              <p className="text-white text-[16px] font-bold">
-                COLLECTIBLE ID:
-              </p>
-              <p className="text-white text-[14px] font-light">
-                {mintResult.nftId}
-              </p>
-              <p className="text-white text-[16px] font-bold">
-                TRANSACTION ID:
-              </p>
-              <a
-                href={`https://solscan.io/tx/${mintResult.transactionId}?cluster=devnet`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sol-purple underline text-[12px] font-light pb-2"
-              >
-                {mintResult.transactionId}
-              </a>
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
+            <div className="relative justify-center bg-black rple p-6 rounded-lg shadow-2xl shadow-sol-purple w-[800px]">
+              <div className="flex flex-col justify-center items-center gap-2">
+                <motion.button
+                  whileHover={{ scale: 0.9 }}
+                  whileTap={{ scale: 0.8 }}
+                  className="absolute top-0 right-0 m-4 text-gray-500 hover:text-gray-700"
+                  onClick={() => setShowModal(false)}
+                >
+                  <IoClose className="w-[30px] h-[30px] text-white" />
+                </motion.button>
+                <h2 className="text-[24px] font-bold mb-4 text-white">
+                  MINT SUCCESSFUL!{" "}
+                </h2>
 
-              {mintResult.nftImage && (
-                <img
-                  src={mintResult.nftImage}
-                  alt="Minted NFT"
-                  className="w-full h-auto max-w-xs rounded-md "
-                />
-              )}
+                <p className="text-white text-[16px] font-bold">
+                  COLLECTIBLE NAME:
+                </p>
+                <p className="text-white text-[14px] font-light uppercase">
+                  {mintResult.nftName}
+                </p>
+                <p className="text-white text-[16px] font-bold">
+                  COLLECTIBLE ID:
+                </p>
+                <p className="text-white text-[14px] font-light">
+                  {mintResult.nftId}
+                </p>
+                <p className="text-white text-[16px] font-bold">
+                  TRANSACTION ID:
+                </p>
+                <a
+                  href={`https://solscan.io/tx/${mintResult.transactionId}?cluster=devnet`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sol-purple underline text-[12px] font-light pb-2"
+                >
+                  {mintResult.transactionId}
+                </a>
+
+                {mintResult.nftImage && (
+                  <img
+                    src={mintResult.nftImage}
+                    alt="Minted NFT"
+                    className="w-full h-auto max-w-xs rounded-md "
+                  />
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
       <div className="text-center pr-20 pt-2">
         <div className="grid grid-cols-3 gap-4">
