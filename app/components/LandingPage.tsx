@@ -872,20 +872,24 @@ export const LandingPage = () => {
               </p>
             )}
             {txError && <p>{txError}</p>}
-            <div className="flex items-center gap-4">
-              <button
+            <div className="flex items-center gap-4 py-4 font-bold">
+              <motion.button
+                whileHover={{ scale: 0.9 }}
+                whileTap={{ scale: 0.8 }}
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
                 disabled={quantity <= 1}
               >
                 <TiMinus size={24} />
-              </button>
-              <span>{quantity}</span>
-              <button
+              </motion.button>
+              <span className="text-[20px]">{quantity}</span>
+              <motion.button
+                whileHover={{ scale: 0.9 }}
+                whileTap={{ scale: 0.8 }}
                 onClick={() => setQuantity(Math.min(mintLimit, quantity + 1))}
                 disabled={quantity >= mintLimit}
               >
                 <TiPlus size={24} />
-              </button>
+              </motion.button>
             </div>
             <motion.button
               whileHover={{ scale: 0.9 }}
