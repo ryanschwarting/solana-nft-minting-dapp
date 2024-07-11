@@ -702,7 +702,7 @@ export const LandingPage = () => {
   const [mintResult, setMintResult] = useState<any>(null);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [quantity, setQuantity] = useState<number>(1);
-  const [mintLimit, setMintLimit] = useState<number>(10);
+  const [mintLimit, setMintLimit] = useState<number>(1);
 
   const { connection } = useConnection();
   const wallet = useAnchorWallet();
