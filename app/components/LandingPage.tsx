@@ -857,17 +857,17 @@ export const LandingPage = () => {
             <h1 className="font-bold text-[42px] leading-10">
               DIGITAL COLLECTIBLES
             </h1>
-            <p className="font-bold text-[18px] mt-4">
+            <p className="font-bold text-[18px] mt-6">
               7,777 UNIQUE DIGITAL COLLECTIBLES
             </p>
             <p className="font-bold text-[18px]">
               LIVING ON THE SOLANA BLOCKCHAIN{" "}
             </p>
-            <p className="font-bold text-[18px]">
+            <p className="font-bold text-[18px] mt-6">
               MINT DATE: DECEMBER 25TH, 2024
             </p>
             {solAmount && (
-              <p className="font-bold text-[22px] text-sol-purple py-4 pt-10">
+              <p className="font-bold text-[22px] text-sol-purple py-6">
                 MINT PRICE: {solAmount} SOL
               </p>
             )}
