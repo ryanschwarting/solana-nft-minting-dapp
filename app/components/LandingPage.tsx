@@ -906,7 +906,7 @@ export const LandingPage = () => {
           </div>
         )
       )}
-      {showModal && mintResult && (
+      {/* {showModal && mintResult && (
         <>
           <div className="fixed inset-0 z-50 overflow-hidden">
             <Confetti width={window.innerWidth} height={window.innerHeight} />
@@ -998,7 +998,102 @@ export const LandingPage = () => {
             </div>
           </motion.div>
         </>
+      )} */}
+
+      {showModal && mintResult && (
+        <>
+          <div className="fixed inset-0 z-50 overflow-hidden">
+            <Confetti width={window.innerWidth} height={window.innerHeight} />
+          </div>
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={containerVariants}
+          >
+            <div className="relative flex flex-col  items-center justify-center bg-black p-6 rounded-lg shadow-2xl shadow-sol-purple w-[800px]">
+              <motion.div
+                className="flex flex-col items-center justify-center gap-2"
+                initial="hidden"
+                animate="visible"
+                variants={containerVariants}
+              >
+                <motion.button
+                  whileHover={{ scale: 0.9 }}
+                  whileTap={{ scale: 0.8 }}
+                  className="absolute top-0 right-0 m-4 text-gray-500 hover:text-gray-700"
+                  onClick={() => setShowModal(false)}
+                >
+                  <IoClose className="w-[30px] h-[30px] text-white" />
+                </motion.button>
+                <motion.h2
+                  className="text-[24px] font-bold mb-4 text-white text-center"
+                  variants={textVariants}
+                >
+                  MINT SUCCESSFUL!
+                </motion.h2>
+
+                {mintResult.map((result: any, index: number) => (
+                  <div key={index} className="mb-4 text-center">
+                    <motion.p
+                      className="text-white text-[16px] font-bold"
+                      variants={textVariants}
+                    >
+                      COLLECTIBLE NAME:
+                    </motion.p>
+                    <motion.p
+                      className="text-white text-[14px] font-light uppercase mb-2"
+                      variants={textVariants}
+                    >
+                      {result.nftName}
+                    </motion.p>
+                    <motion.p
+                      className="text-white text-[16px] font-bold"
+                      variants={textVariants}
+                    >
+                      COLLECTIBLE ID:
+                    </motion.p>
+                    <motion.p
+                      className="text-white text-[14px] font-light mb-2"
+                      variants={textVariants}
+                    >
+                      {result.nftId}
+                    </motion.p>
+                    <motion.p
+                      className="text-white text-[16px] font-bold"
+                      variants={textVariants}
+                    >
+                      TRANSACTION ID:
+                    </motion.p>
+                    <motion.a
+                      whileHover={{ scale: 0.9 }}
+                      whileTap={{ scale: 0.8 }}
+                      href={`https://solscan.io/tx/${result.transactionId}?cluster=devnet`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sol-purple underline text-[10px] font-light"
+                      variants={textVariants}
+                    >
+                      {result.transactionId}
+                    </motion.a>
+
+                    {result.nftImage && (
+                      <motion.img
+                        src={result.nftImage}
+                        alt="Minted NFT"
+                        className="w-full h-auto max-w-xs rounded-md mx-auto mt-4"
+                        variants={textVariants}
+                      />
+                    )}
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.div>
+        </>
       )}
+
       <div className="text-center pr-20 pt-2">
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-1 row-span-2 flex flex-col justify-between pt-10">
