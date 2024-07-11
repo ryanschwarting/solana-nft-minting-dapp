@@ -872,6 +872,9 @@ export const LandingPage = () => {
               </p>
             )}
             {txError && <p>{txError}</p>}
+            <div className="font-bold text-[16px] uppercase">
+              Limit per wallet: {mintLimit}
+            </div>
             <div className="flex items-center gap-4 py-4 font-bold">
               <motion.button
                 whileHover={{ scale: 0.9 }}
@@ -881,7 +884,7 @@ export const LandingPage = () => {
               >
                 <TiMinus size={24} />
               </motion.button>
-              <span className="text-[20px]">{quantity}</span>
+              <span className="text-[16px]">{quantity}</span>
               <motion.button
                 whileHover={{ scale: 0.9 }}
                 whileTap={{ scale: 0.8 }}
