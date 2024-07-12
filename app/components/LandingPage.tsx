@@ -669,7 +669,7 @@ import { motion } from "framer-motion";
 import Confetti from "react-confetti";
 
 const CANDY_MACHINE_ID = new PublicKey(
-  "2XwzVeTYiCBddPPerV4LrGnQq21Epg1jUK3qV8Lgmp7g"
+  "GkkWUskykCEmLMmfb1TwvAjPBoi1JuoYCB9GHf1BgcFR"
 );
 
 const containerVariants = {
@@ -746,33 +746,6 @@ export const LandingPage = () => {
     const intervalId = setInterval(() => updateState(), 15_000);
     return () => clearInterval(intervalId);
   }, [metaplex]);
-
-  //   useEffect(() => {
-  //     if (!metaplex) return;
-
-  //     const updateState = async () => {
-  //       try {
-  //         const state = await metaplex
-  //           .candyMachines()
-  //           .findByAddress({ address: CANDY_MACHINE_ID });
-  //         setCandyState(state);
-  //         setNfts(state.items);
-  //         setMintLimit(candyState?.candyGuard?.guards?.mintLimit?.limit || 10);
-  //         setCandyStateError(undefined);
-  //       } catch (e: any) {
-  //         console.log(e);
-  //         toast.error("Error has occurred!");
-  //         setCandyStateError(e.message);
-  //       } finally {
-  //         setCandyStateLoading(false);
-  //       }
-  //     };
-  //     updateState();
-
-  //     // Refresh state every 15 seconds
-  //     const intervalId = setInterval(() => updateState(), 15_000);
-  //     return () => clearInterval(intervalId);
-  //   }, [metaplex]);
 
   const mint = async (quantity: number) => {
     if (!metaplex || !candyState) {
@@ -906,99 +879,6 @@ export const LandingPage = () => {
           </div>
         )
       )}
-      {/* {showModal && mintResult && (
-        <>
-          <div className="fixed inset-0 z-50 overflow-hidden">
-            <Confetti width={window.innerWidth} height={window.innerHeight} />
-          </div>
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={containerVariants}
-          >
-            <div className="relative justify-center bg-black rple p-6 rounded-lg shadow-2xl shadow-sol-purple w-[800px]">
-              <motion.div
-                className="flex flex-col justify-center items-center gap-2"
-                initial="hidden"
-                animate="visible"
-                variants={containerVariants}
-              >
-                <motion.button
-                  whileHover={{ scale: 0.9 }}
-                  whileTap={{ scale: 0.8 }}
-                  className="absolute top-0 right-0 m-4 text-gray-500 hover:text-gray-700"
-                  onClick={() => setShowModal(false)}
-                >
-                  <IoClose className="w-[30px] h-[30px] text-white" />
-                </motion.button>
-                <motion.h2
-                  className="text-[24px] font-bold mb-4 text-white"
-                  variants={textVariants}
-                >
-                  MINT SUCCESSFUL!
-                </motion.h2>
-
-                {mintResult.map((result: any, index: number) => (
-                  <div key={index} className="mb-4">
-                    <motion.p
-                      className="text-white text-[16px] font-bold"
-                      variants={textVariants}
-                    >
-                      COLLECTIBLE NAME:
-                    </motion.p>
-                    <motion.p
-                      className="text-white text-[14px] font-light uppercase"
-                      variants={textVariants}
-                    >
-                      {result.nftName}
-                    </motion.p>
-                    <motion.p
-                      className="text-white text-[16px] font-bold"
-                      variants={textVariants}
-                    >
-                      COLLECTIBLE ID:
-                    </motion.p>
-                    <motion.p
-                      className="text-white text-[14px] font-light"
-                      variants={textVariants}
-                    >
-                      {result.nftId}
-                    </motion.p>
-                    <motion.p
-                      className="text-white text-[16px] font-bold"
-                      variants={textVariants}
-                    >
-                      TRANSACTION ID:
-                    </motion.p>
-                    <motion.a
-                      whileHover={{ scale: 0.9 }}
-                      whileTap={{ scale: 0.8 }}
-                      href={`https://solscan.io/tx/${result.transactionId}?cluster=devnet`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sol-purple underline text-[12px] font-light pb-2"
-                      variants={textVariants}
-                    >
-                      {result.transactionId}
-                    </motion.a>
-
-                    {result.nftImage && (
-                      <motion.img
-                        src={result.nftImage}
-                        alt="Minted NFT"
-                        className="w-full h-auto max-w-xs rounded-md"
-                        variants={textVariants}
-                      />
-                    )}
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
-        </>
-      )} */}
 
       {showModal && mintResult && (
         <>
@@ -1012,9 +892,9 @@ export const LandingPage = () => {
             exit="exit"
             variants={containerVariants}
           >
-            <div className="relative flex flex-col  items-center justify-center bg-black p-6 rounded-lg shadow-2xl shadow-sol-purple w-[800px]">
+            <div className="relative flex flex-col items-center bg-black p-6 rounded-xl shadow-2xl shadow-sol-purple w-[800px] max-h-[80vh] overflow-y-auto">
               <motion.div
-                className="flex flex-col items-center justify-center gap-2"
+                className="flex flex-col items-center justify-center gap-2 w-full"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
@@ -1033,61 +913,65 @@ export const LandingPage = () => {
                 >
                   MINT SUCCESSFUL!
                 </motion.h2>
-
-                {mintResult.map((result: any, index: number) => (
-                  <div key={index} className="mb-4 text-center">
-                    <motion.p
-                      className="text-white text-[16px] font-bold"
-                      variants={textVariants}
+                <div className="w-full flex flex-col items-center">
+                  {mintResult.map((result: any, index: number) => (
+                    <div
+                      key={index}
+                      className="mb-10 text-center rounded-xl p-4 border border-sol-purple shadow-lg shadow-sol-purple"
                     >
-                      COLLECTIBLE NAME:
-                    </motion.p>
-                    <motion.p
-                      className="text-white text-[14px] font-light uppercase mb-2"
-                      variants={textVariants}
-                    >
-                      {result.nftName}
-                    </motion.p>
-                    <motion.p
-                      className="text-white text-[16px] font-bold"
-                      variants={textVariants}
-                    >
-                      COLLECTIBLE ID:
-                    </motion.p>
-                    <motion.p
-                      className="text-white text-[14px] font-light mb-2"
-                      variants={textVariants}
-                    >
-                      {result.nftId}
-                    </motion.p>
-                    <motion.p
-                      className="text-white text-[16px] font-bold"
-                      variants={textVariants}
-                    >
-                      TRANSACTION ID:
-                    </motion.p>
-                    <motion.a
-                      whileHover={{ scale: 0.9 }}
-                      whileTap={{ scale: 0.8 }}
-                      href={`https://solscan.io/tx/${result.transactionId}?cluster=devnet`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sol-purple underline text-[10px] font-light"
-                      variants={textVariants}
-                    >
-                      {result.transactionId}
-                    </motion.a>
-
-                    {result.nftImage && (
-                      <motion.img
-                        src={result.nftImage}
-                        alt="Minted NFT"
-                        className="w-full h-auto max-w-xs rounded-md mx-auto mt-4"
+                      <motion.p
+                        className="text-white text-[16px] font-bold"
                         variants={textVariants}
-                      />
-                    )}
-                  </div>
-                ))}
+                      >
+                        COLLECTIBLE NAME:
+                      </motion.p>
+                      <motion.p
+                        className="text-white text-[14px] font-light uppercase mb-2"
+                        variants={textVariants}
+                      >
+                        {result.nftName}
+                      </motion.p>
+                      <motion.p
+                        className="text-white text-[16px] font-bold"
+                        variants={textVariants}
+                      >
+                        COLLECTIBLE ID:
+                      </motion.p>
+                      <motion.p
+                        className="text-white text-[14px] font-light mb-2"
+                        variants={textVariants}
+                      >
+                        {result.nftId}
+                      </motion.p>
+                      <motion.p
+                        className="text-white text-[16px] font-bold"
+                        variants={textVariants}
+                      >
+                        TRANSACTION ID:
+                      </motion.p>
+                      <motion.a
+                        whileHover={{ scale: 0.9 }}
+                        whileTap={{ scale: 0.8 }}
+                        href={`https://solscan.io/tx/${result.transactionId}?cluster=devnet`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sol-purple underline text-[10px] font-light"
+                        variants={textVariants}
+                      >
+                        {result.transactionId}
+                      </motion.a>
+
+                      {result.nftImage && (
+                        <motion.img
+                          src={result.nftImage}
+                          alt="Minted NFT"
+                          className="w-full h-auto max-w-xs rounded-md mx-auto mt-4"
+                          variants={textVariants}
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             </div>
           </motion.div>
