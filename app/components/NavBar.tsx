@@ -6,6 +6,7 @@ import Link from "next/link";
 import { FaDiscord } from "react-icons/fa";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import { motion } from "framer-motion";
+import CustomWalletButton from "./CustomWalletButton";
 
 export const NavBar: React.FC = () => {
   //   const router = useRouter();
@@ -26,6 +27,7 @@ export const NavBar: React.FC = () => {
             JOIN DISCORD
           </motion.button>
           <WalletMultiButton style={{}} />
+          {/* <CustomWalletButton /> */}
         </div>
       </div>
     </nav>
