@@ -4,7 +4,7 @@ import AppWalletProvider from "./components/AppWalletProvider";
 import { NavBar } from "./components/NavBar";
 // import { Teko } from "@next/font/google";
 // import { Anton } from "@next/font/google";
-import { Lilita_One } from "@next/font/google";
+import { Lilita_One } from "next/font/google";
 
 // const pixel = Teko({
 //   subsets: [],
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={pixel.className}>
-      <body className="px-20">
+      <body className="px-30">
         <AppWalletProvider>
           <div className="py-4">
             <NavBar />
