@@ -73,11 +73,11 @@ export const CustomWalletButton = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [selectedWalletIcon, setSelectedWalletIcon] = useState<string>("");
+  const [balance, setBalance] = useState<number | null>(null);
+  const [copyText, setCopyText] = useState("Copy address");
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-
-  const [balance, setBalance] = useState<number | null>(null);
 
   useEffect(() => {
     if (!connection || !publicKey) return;
@@ -167,7 +167,10 @@ export const CustomWalletButton = () => {
   const handleCopyAddress = () => {
     if (publicKey) {
       navigator.clipboard.writeText(publicKey.toBase58());
-      toast.success("Address copied to clipboard!", { autoClose: 1000 });
+      setCopyText("Copied");
+      setTimeout(() => {
+        setCopyText("Copy address");
+      }, 1000);
     }
   };
 
@@ -180,7 +183,7 @@ export const CustomWalletButton = () => {
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
               onClick={() => setOpen(true)}
-              className="text-[12px] md:text-[16px] font-bold bg-white text-black h-[40px] md:h-[60px] w-[200px] rounded-xl"
+              className="text-[12px] md:text-[18px] font-bold bg-white text-black h-[40px] md:h-[60px] w-[200px] rounded-xl"
             >
               {connecting ? "Connecting..." : "Select Wallet"}
             </motion.button>
@@ -190,7 +193,7 @@ export const CustomWalletButton = () => {
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
-              className="flex bg-white text-[12px] md:text-[16px] font-bold text-black h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
+              className="flex bg-white text-[12px] md:text-[18px] font-bold text-black h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               {selectedWalletIcon && (
@@ -229,7 +232,7 @@ export const CustomWalletButton = () => {
                 className="px-4 py-2 hover:text-sol-green"
                 onClick={handleCopyAddress}
               >
-                Copy address
+                {copyText}
               </motion.button>
               <motion.button
                 variants={itemVariants}
