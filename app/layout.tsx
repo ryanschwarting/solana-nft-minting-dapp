@@ -21,6 +21,33 @@ const pixel = Lilita_One({
   weight: ["400"],
 });
 
+export const metadata: Metadata = {
+  title: "Monster Verse Mint",
+  description:
+    "7,777 Unique Digital Collectibles Living on the Solana Blockchain",
+  openGraph: {
+    title: "Monster Verse Mint",
+    description:
+      "7,777 Unique Digital Collectibles Living on the Solana Blockchain",
+    url: "https://solana-nft-minting-dapp-kaktos.vercel.app/",
+    siteName: "Blinks dApp",
+    images: [
+      {
+        url: "/kaktosSMB.png",
+        width: 1260,
+        height: 800,
+      },
+    ],
+  },
+  twitter: {
+    site: `@KaktosSol`,
+    creator: `@KaktosSol`,
+    card: "summary",
+  },
+  category: "blockchain",
+  icons: "/kaktosSMB.png",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={pixel.className}>
-      <body className="px-30">
+      <body className="px-32">
         <AppWalletProvider>
           <div className="py-4">
             <NavBar />
