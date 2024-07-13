@@ -26,7 +26,7 @@ export const NavBar: React.FC = () => {
             </span>
             Join Discord
           </motion.button>
-          <WalletMultiButton style={{}} />
+          {/* <WalletMultiButton style={{}} /> */}
           <CustomWalletButton />
         </div>
       </div>
