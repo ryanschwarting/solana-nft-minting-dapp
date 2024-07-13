@@ -172,9 +172,7 @@ export const CustomWalletButton = () => {
   };
 
   return (
-    <div className="text-white z-50">
-      <ToastContainer />
-
+    <div className="text-white z-50 ">
       <div className="flex gap-2 items-center">
         {!publicKey ? (
           <>
@@ -216,6 +214,7 @@ export const CustomWalletButton = () => {
                 )}
               </div> */}
             </motion.button>
+            <ToastContainer />
 
             <motion.div
               initial={false}
