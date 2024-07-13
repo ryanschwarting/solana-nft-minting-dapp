@@ -9,8 +9,8 @@ import {
 } from "@metaplex-foundation/js";
 import { LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
 import { useAnchorWallet, useConnection } from "@solana/wallet-adapter-react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { toast, ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import { IoClose } from "react-icons/io5";
 import { TiPlus, TiMinus } from "react-icons/ti";
 import Image from "next/image";
@@ -83,7 +83,7 @@ export const LandingPage = () => {
         setCandyStateError(undefined);
       } catch (e: any) {
         console.log(e);
-        toast.error("Error has occurred!");
+        // toast.error("Error has occurred!");
         setCandyStateError(e.message);
       } finally {
         setCandyStateLoading(false);
@@ -144,10 +144,10 @@ export const LandingPage = () => {
       console.log("Mint successful:", mintData);
       setMintResult(mintData);
       setShowModal(true);
-      toast.success("Mint successful!", { autoClose: 1500 });
+      //   toast.success("Mint successful!", { autoClose: 1500 });
     } catch (e: any) {
       console.log(e);
-      toast.error("Mint failed!");
+      //   toast.error("Mint failed!");
       setTxError(e.message);
     } finally {
       setTxLoading(false);
@@ -163,7 +163,7 @@ export const LandingPage = () => {
 
   return (
     <div className="relative flex flex-row justify-center gap-20 overflow-hidden">
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       {candyStateLoading ? (
         <div> Loading ...</div>
       ) : candyStateError ? (
