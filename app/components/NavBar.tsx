@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FaDiscord } from "react-icons/fa";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import { motion } from "framer-motion";
-import CustomWalletButton from "./CustomWalletButton";
+import { CustomWalletButton } from "./CustomWalletButton";
 
 export const NavBar: React.FC = () => {
   //   const router = useRouter();
@@ -19,15 +19,15 @@ export const NavBar: React.FC = () => {
           <motion.button
             whileHover={{ scale: 0.9 }}
             whileTap={{ scale: 0.8 }}
-            className="bg-white font-bold text-[14px] flex items-center justify-center py-2 px-8 rounded-md text-[#7289da]"
+            className="bg-white font-bold text-[16px] flex items-center justify-center h-[40px] md:h-[60px] w-[200px] rounded-xl text-black"
           >
-            <span className="mr-2 items-center flex justify-center">
-              <FaDiscord className="h-[20px] w-[20px] " />
+            <span className="mr-2 items-center flex justify-center ">
+              <FaDiscord className="h-[30px] w-[30px] mr-3 text-[#7289da]" />
             </span>
-            JOIN DISCORD
+            Join Discord
           </motion.button>
           <WalletMultiButton style={{}} />
-          {/* <CustomWalletButton /> */}
+          <CustomWalletButton />
         </div>
       </div>
     </nav>

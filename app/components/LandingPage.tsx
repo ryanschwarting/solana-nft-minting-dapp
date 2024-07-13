@@ -173,29 +173,29 @@ export const LandingPage = () => {
           <div className="pt-10 pr-20">
             <p className="font-bold text-[32px] text-sol-green">
               {candyState.itemsMinted.toString()} /{" "}
-              {candyState.itemsAvailable.toString()} MINTED
+              {candyState.itemsAvailable.toString()} Minted
             </p>
             <h1 className="font-bold text-[42px]">MONSTER VERSE</h1>
             <h1 className="font-bold text-[42px] leading-10">
               DIGITAL COLLECTIBLES
             </h1>
-            <p className="font-bold text-[18px] mt-6">
-              7,777 UNIQUE DIGITAL COLLECTIBLES
+            <p className="font-bold text-[20px] mt-6">
+              7,777 Unique Digital Collectibles
             </p>
-            <p className="font-bold text-[18px]">
-              LIVING ON THE SOLANA BLOCKCHAIN{" "}
+            <p className="font-bold text-[20px]">
+              Living on the Solana Blockchain
             </p>
-            <p className="font-bold text-[18px] mt-6">
-              MINT DATE: DECEMBER 25TH, 2024
+            <p className="font-bold text-[20px] mt-6">
+              Mint Date: December 25th, 2024
             </p>
             {solAmount && (
-              <p className="font-bold text-[22px] text-sol-purple py-6">
-                MINT PRICE: {solAmount} SOL
+              <p className="font-bold text-[20px] text-sol-purple py-6">
+                Mint Price: {solAmount} SOL
               </p>
             )}
             {txError && <p>{txError}</p>}
-            <div className="font-bold text-[16px] uppercase">
-              Limit per wallet: {mintLimit}
+            <div className="font-bold text-[16px] ">
+              Limit Per Wallet: {mintLimit}
             </div>
             <div className="flex items-center gap-4 py-4 font-bold">
               <motion.button
@@ -219,11 +219,11 @@ export const LandingPage = () => {
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
-              className="bg-sol-green text-black text-[24px] py-4 px-20 rounded-lg font-bold shadow-2xl shadow-sol-purple hover:shadow-none"
+              className="bg-sol-green text-black text-[24px] py-4 px-20 rounded-xl font-bold shadow-2xl shadow-sol-purple hover:shadow-none"
               onClick={() => mint(quantity)}
               disabled={!wallet || txLoading || soldOut}
             >
-              {soldOut ? "SOLD OUT" : txLoading ? "LOADING" : "MINT"}
+              {soldOut ? "Sold Out" : txLoading ? "Loading..." : "Mint"}
             </motion.button>
           </div>
         )
@@ -304,7 +304,7 @@ export const LandingPage = () => {
                         href={`https://solscan.io/tx/${result.transactionId}?cluster=devnet`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sol-purple underline text-[10px] font-light"
+                        className="text-sol-purple underline text-[12px] font-light"
                         variants={textVariants}
                       >
                         {result.transactionId}
@@ -335,14 +335,14 @@ export const LandingPage = () => {
               alt="Image 1"
               width={150}
               height={150}
-              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-md"
+              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-xl"
             />
             <Image
               src="/2.png"
               alt="Image 2"
               width={150}
               height={150}
-              className="w-full h-auto shadow-2xl shadow-sol-purple rounded-md"
+              className="w-full h-auto shadow-2xl shadow-sol-purple rounded-xl"
             />
           </div>
           <div className="col-span-1 row-span-3 flex flex-col justify-between">
@@ -351,21 +351,21 @@ export const LandingPage = () => {
               alt="Image 3"
               width={150}
               height={150}
-              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-md"
+              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-xl"
             />
             <Image
               src="/4.png"
               alt="Image 4"
               width={150}
               height={150}
-              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-md"
+              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-xl"
             />
             <Image
               src="/5.png"
               alt="Image 5"
               width={150}
               height={150}
-              className="w-full h-auto shadow-2xl shadow-sol-purple rounded-md"
+              className="w-full h-auto shadow-2xl shadow-sol-purple rounded-xl"
             />
           </div>
           <div className="col-span-1 row-span-2 flex flex-col justify-between pt-10">
@@ -374,14 +374,14 @@ export const LandingPage = () => {
               alt="Image 6"
               width={150}
               height={150}
-              className="w-full h-auto mb-4  shadow-2xl shadow-sol-purple rounded-md"
+              className="w-full h-auto mb-4  shadow-2xl shadow-sol-purple rounded-xl"
             />
             <Image
               src="/7.png"
               alt="Image 7"
               width={150}
               height={150}
-              className="w-full h-auto shadow-2xl shadow-sol-purple rounded-md"
+              className="w-full h-auto shadow-2xl shadow-sol-purple rounded-xl"
             />
           </div>
         </div>

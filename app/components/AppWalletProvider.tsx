@@ -31,7 +31,7 @@ export default function AppWalletProvider({
     () => [
       new PhantomWalletAdapter(),
       new SolflareWalletAdapter(),
-      new LedgerWalletAdapter(),
+      // new LedgerWalletAdapter(),
       //   new UnsafeBurnerWalletAdapter(),
     ],
     [networkDev]
