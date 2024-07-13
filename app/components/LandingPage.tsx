@@ -144,7 +144,7 @@ export const LandingPage = () => {
       console.log("Mint successful:", mintData);
       setMintResult(mintData);
       setShowModal(true);
-      toast.success("Mint successful!");
+      toast.success("Mint successful!", { autoClose: 1500 });
     } catch (e: any) {
       console.log(e);
       toast.error("Mint failed!");
@@ -241,7 +241,7 @@ export const LandingPage = () => {
             exit="exit"
             variants={containerVariants}
           >
-            <div className="relative flex flex-col items-center bg-black p-6 rounded-xl shadow-2xl shadow-sol-purple w-[800px] max-h-[80vh] overflow-y-auto">
+            <div className="relative flex flex-col items-center bg-black p-6 rounded-2xl shadow-2xl shadow-sol-purple w-[800px] max-h-[80vh] overflow-y-auto">
               <motion.div
                 className="flex flex-col items-center justify-center gap-2 w-full"
                 initial="hidden"
@@ -314,7 +314,7 @@ export const LandingPage = () => {
                         <motion.img
                           src={result.nftImage}
                           alt="Minted NFT"
-                          className="w-full h-auto max-w-xs rounded-md mx-auto mt-4"
+                          className="w-full h-auto max-w-xs rounded-xl mx-auto mt-4"
                           variants={textVariants}
                         />
                       )}
