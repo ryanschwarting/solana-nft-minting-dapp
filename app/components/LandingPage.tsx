@@ -162,7 +162,7 @@ export const LandingPage = () => {
     : null;
 
   return (
-    <div className="relative flex flex-row justify-center gap-20 overflow-hidden">
+    <div className="relative flex flex-row justify-between gap-20 overflow-hidden pt-10">
       {/* <ToastContainer /> */}
       {candyStateLoading ? (
         <div> Loading ...</div>
@@ -170,7 +170,7 @@ export const LandingPage = () => {
         <div>{candyStateError}</div>
       ) : (
         candyState && (
-          <div className="pt-10 pr-20">
+          <div className="">
             <p className="font-bold text-[32px] text-sol-green">
               {candyState.itemsMinted.toString()} /{" "}
               {candyState.itemsAvailable.toString()} Minted
@@ -327,7 +327,7 @@ export const LandingPage = () => {
         </>
       )}
 
-      <div className="text-center pr-20 pt-2">
+      <div className="text-center">
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-1 row-span-2 flex flex-col justify-between pt-10">
             <Image

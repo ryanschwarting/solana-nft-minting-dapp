@@ -55,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={pixel.className}>
-      <body className="px-32">
+      <body className="px-28">
         <AppWalletProvider>
           <div className="py-4">
             <NavBar />
