@@ -217,7 +217,7 @@ export const CustomWalletButton = () => {
                 )}
               </div> */}
             </motion.button>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
 
             <motion.div
               initial={false}
