@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description:
       "7,777 Unique Digital Collectibles Living on the Solana Blockchain",
     url: "https://solana-nft-minting-dapp-kaktos.vercel.app/",
-    siteName: "Blinks dApp",
+    siteName: "Monster Verse Mint",
     images: [
       {
         url: "/kaktosSMB.png",
