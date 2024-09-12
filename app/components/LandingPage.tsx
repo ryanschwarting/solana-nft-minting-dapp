@@ -19,6 +19,7 @@ import Confetti from "react-confetti";
 
 const CANDY_MACHINE_ID = new PublicKey(
   "HyhmxVFbZNA9DLjr4xBqHZjWXAPzr1j8Mrot4vV7FLAP"
+  // "BVV6Y6PkzDNNeeq16NUM7CyjPV6mV1xWqatUnNZeaGsn"
 );
 
 const containerVariants = {
