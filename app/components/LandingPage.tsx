@@ -18,7 +18,7 @@ import { motion } from "framer-motion";
 import Confetti from "react-confetti";
 
 const CANDY_MACHINE_ID = new PublicKey(
-  "AAfa65PEK4AySCzcmP7NnbmX7vA1T5MwyG9WPbzdSdiU"
+  "8jjJw7oMCbK4RQagQA3fJN8kLks2FhxNujxUUWt4aCqh"
 );
 
 const containerVariants = {
