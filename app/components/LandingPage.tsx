@@ -19,7 +19,7 @@ import Confetti from "react-confetti";
 
 const CANDY_MACHINE_ID = new PublicKey(
   "HyhmxVFbZNA9DLjr4xBqHZjWXAPzr1j8Mrot4vV7FLAP"
-  // "BVV6Y6PkzDNNeeq16NUM7CyjPV6mV1xWqatUnNZeaGsn"
+  // "3ZoaXUmkz6rW9mLuHWgfR6jU6jS2kokEcqoV1JBpqrs4"
 );
 
 const containerVariants = {
@@ -163,7 +163,7 @@ export const LandingPage = () => {
     : null;
 
   return (
-    <div className="relative flex flex-row justify-between gap-20 overflow-hidden pt-10">
+    <div className="relative flex flex-col lg:flex-row justify-between gap-10 lg:gap-20 overflow-hidden pt-10 px-4 lg:px-0">
       {/* <ToastContainer /> */}
       {candyStateLoading ? (
         <div> Loading ...</div>
@@ -171,31 +171,33 @@ export const LandingPage = () => {
         <div>{candyStateError}</div>
       ) : (
         candyState && (
-          <div className="">
-            <p className="font-bold text-[32px] text-sol-green">
+          <div className="w-full lg:w-auto">
+            <p className="font-bold text-[24px] lg:text-[32px] text-sol-green">
               {candyState.itemsMinted.toString()} /{" "}
               {candyState.itemsAvailable.toString()} Minted
             </p>
-            <h1 className="font-bold text-[42px]">MONSTER VERSE</h1>
-            <h1 className="font-bold text-[42px] leading-10">
+            <h1 className="font-bold text-[32px] lg:text-[42px]">
+              MONSTER VERSE
+            </h1>
+            <h1 className="font-bold text-[32px] lg:text-[42px] leading-10">
               DIGITAL COLLECTIBLES
             </h1>
-            <p className="font-bold text-[20px] mt-6">
+            <p className="font-bold text-[16px] lg:text-[20px] mt-4 lg:mt-6">
               7,777 Unique Digital Collectibles
             </p>
-            <p className="font-bold text-[20px]">
+            <p className="font-bold text-[16px] lg:text-[20px]">
               Living on the Solana Blockchain
             </p>
-            <p className="font-bold text-[20px] mt-6">
+            <p className="font-bold text-[16px] lg:text-[20px] mt-4 lg:mt-6">
               Mint Date: December 25th, 2024
             </p>
             {solAmount && (
-              <p className="font-bold text-[20px] text-sol-purple py-6">
+              <p className="font-bold text-[18px] lg:text-[20px] text-sol-purple py-4 lg:py-6">
                 Mint Price: {solAmount} SOL
               </p>
             )}
             {txError && <p>{txError}</p>}
-            <div className="font-bold text-[16px] ">
+            <div className="font-bold text-[14px] lg:text-[16px]">
               Limit Per Wallet: {mintLimit}
             </div>
             <div className="flex items-center gap-4 py-4 font-bold">
@@ -220,7 +222,7 @@ export const LandingPage = () => {
             <motion.button
               whileHover={{ scale: 0.9 }}
               whileTap={{ scale: 0.8 }}
-              className="bg-sol-green text-black text-[24px] py-4 px-20 rounded-xl font-bold shadow-2xl shadow-sol-purple hover:shadow-none"
+              className="bg-sol-green text-black text-[20px] lg:text-[24px] py-3 lg:py-4 px-12 lg:px-20 rounded-xl font-bold shadow-2xl shadow-sol-purple hover:shadow-none w-full lg:w-auto"
               onClick={() => mint(quantity)}
               disabled={!wallet || txLoading || soldOut}
             >
@@ -328,9 +330,9 @@ export const LandingPage = () => {
         </>
       )}
 
-      <div className="text-center">
-        <div className="grid grid-cols-3 gap-4">
-          <div className="col-span-1 row-span-2 flex flex-col justify-between pt-10">
+      <div className="text-center mt-10 lg:mt-0">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="col-span-1 row-span-2 flex flex-col justify-between pt-5 lg:pt-10">
             <Image
               src="/1.png"
               alt="Image 1"
@@ -369,13 +371,13 @@ export const LandingPage = () => {
               className="w-full h-auto shadow-2xl shadow-sol-purple rounded-xl"
             />
           </div>
-          <div className="col-span-1 row-span-2 flex flex-col justify-between pt-10">
+          <div className="col-span-1 row-span-2 flex flex-col justify-between pt-5 lg:pt-10">
             <Image
               src="/6.png"
               alt="Image 6"
               width={150}
               height={150}
-              className="w-full h-auto mb-4  shadow-2xl shadow-sol-purple rounded-xl"
+              className="w-full h-auto mb-4 shadow-2xl shadow-sol-purple rounded-xl"
             />
             <Image
               src="/7.png"

@@ -180,10 +180,10 @@ export const CustomWalletButton = () => {
         {!publicKey ? (
           <>
             <motion.button
-              whileHover={{ scale: 0.9 }}
-              whileTap={{ scale: 0.8 }}
+              whileHover={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => setOpen(true)}
-              className="text-[12px] md:text-[18px] font-bold bg-white text-black h-[40px] md:h-[60px] w-[200px] rounded-xl"
+              className="text-[16px] md:text-[18px] font-bold bg-white text-black w-[200px] h-[40px] md:h-[50px] rounded-xl"
             >
               {connecting ? "Connecting..." : "Select Wallet"}
             </motion.button>
@@ -191,63 +191,55 @@ export const CustomWalletButton = () => {
         ) : (
           <div className="relative" ref={dropdownRef}>
             <motion.button
-              whileHover={{ scale: 0.9 }}
-              whileTap={{ scale: 0.8 }}
-              className="flex bg-white text-[12px] md:text-[18px] font-bold text-black h-[40px] md:h-[60px] w-[200px] rounded-xl items-center"
+              whileHover={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9 }}
+              className="flex bg-white text-[16px] md:text-[18px] font-bold text-black w-[200px] h-[40px] md:h-[50px] rounded-xl items-center justify-center"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               {selectedWalletIcon && (
                 <Image
                   src={selectedWalletIcon}
                   alt="Wallet Icon"
-                  height={30}
-                  width={30}
-                  className="ml-4"
+                  height={20}
+                  width={20}
+                  className="mr-2 hidden sm:inline"
                 />
               )}
-              <div className="truncate md:w-[150px] w-[100px]">
+              <div className="truncate w-[80px] sm:w-[100px] md:w-[150px]">
                 {publicKey.toBase58().slice(0, 4)}..
                 {publicKey.toBase58().slice(-4)}
               </div>
-              {/* <div>
-                {balance !== null ? (
-                  <div>{toFixed(balance, 2)} SOL</div>
-                ) : (
-                  <div>0 SOL</div>
-                )}
-              </div> */}
             </motion.button>
-            {/* <ToastContainer /> */}
 
             <motion.div
               initial={false}
               animate={dropdownOpen ? "open" : "closed"}
               variants={dropdownVariants}
-              className="absolute bg-white text-black font-bold text-center text-[16px] w-[200px] mt-1 rounded-md z-50 py-2"
+              className="absolute bg-white text-black font-bold text-center text-[12px] sm:text-[14px] md:text-[16px] w-[200px] mt-1 rounded-md z-50 py-2"
             >
               <motion.button
                 variants={itemVariants}
-                whileHover={{ scale: 0.9 }}
-                whileTap={{ scale: 0.8 }}
-                className="px-4 py-2 hover:text-sol-green"
+                whileHover={{ scale: 0.95 }}
+                whileTap={{ scale: 0.9 }}
+                className="px-2 py-1 sm:px-4 sm:py-2 hover:text-sol-green w-full"
                 onClick={handleCopyAddress}
               >
                 {copyText}
               </motion.button>
               <motion.button
                 variants={itemVariants}
-                whileHover={{ scale: 0.9 }}
-                whileTap={{ scale: 0.8 }}
-                className="px-4 py-2 hover:text-sol-green"
+                whileHover={{ scale: 0.95 }}
+                whileTap={{ scale: 0.9 }}
+                className="px-2 py-1 sm:px-4 sm:py-2 hover:text-sol-green w-full"
                 onClick={() => setOpen(true)}
               >
                 Change wallet
               </motion.button>
               <motion.button
                 variants={itemVariants}
-                whileHover={{ scale: 0.9 }}
-                whileTap={{ scale: 0.8 }}
-                className="px-4 py-2 hover:text-sol-green"
+                whileHover={{ scale: 0.95 }}
+                whileTap={{ scale: 0.9 }}
+                className="px-2 py-1 sm:px-4 sm:py-2 hover:text-sol-green w-full"
                 onClick={handleDisconnect}
               >
                 Disconnect
@@ -256,29 +248,29 @@ export const CustomWalletButton = () => {
           </div>
         )}
         {open && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-65 ">
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-65 px-4 z-50">
             <motion.div
               ref={modalRef}
               initial="closed"
               animate="open"
               exit="closed"
               variants={modalVariants}
-              className="relative bg-black py-4 px-10 rounded-xl max-w-[450px] w-full border-2 border-sol-purple"
+              className="relative bg-black py-4 px-4 sm:px-6 rounded-xl w-full max-w-[350px] sm:max-w-[450px] border-2 border-sol-purple"
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 <motion.button
                   variants={itemVariants}
                   whileHover={{ scale: 0.9 }}
                   whileTap={{ scale: 0.8 }}
                   onClick={() => setOpen(false)}
-                  className="absolute top-4 right-4 text-white text-[30px]"
+                  className="absolute top-2 right-2 text-white text-[24px] sm:text-[30px]"
                 >
                   <IoClose />
                 </motion.button>
 
                 <motion.h1
                   variants={itemVariants}
-                  className="text-center text-[28px] font-bold text-white"
+                  className="text-center text-[20px] sm:text-[28px] font-bold text-white"
                 >
                   Connect Wallet
                 </motion.h1>
@@ -289,22 +281,22 @@ export const CustomWalletButton = () => {
                     whileTap={{ scale: 0.85 }}
                     key={wallet.adapter.name}
                     onClick={() => handleWalletSelect(wallet.adapter.name)}
-                    className="flex bg-sol-purple bg-opacity-50 items-center py-4 px-6 text-white w-full border-2 border-white rounded-xl"
+                    className="flex bg-sol-purple bg-opacity-50 items-center py-2 sm:py-4 px-3 sm:px-6 text-white w-full border-2 border-white rounded-xl"
                   >
                     <Image
                       src={wallet.adapter.icon}
                       alt={wallet.adapter.name}
-                      height={40}
-                      width={40}
-                      className="mr-5"
+                      height={24}
+                      width={24}
+                      className="h-6 w-6 sm:h-[30px] sm:w-[30px] mr-3 sm:mr-5"
                     />
                     <div className="flex justify-between w-full items-center">
-                      <span className="font-bold text-[16px]">
+                      <span className="font-bold text-[14px] sm:text-[18px]">
                         {wallet.adapter.name}
                       </span>
-                      <span className="font-bold text-[16px] flex items-center">
+                      <span className="font-bold text-[14px] sm:text-[18px] flex items-center">
                         Detected{" "}
-                        <span className="text-[22px] ml-2">
+                        <span className="text-[14px] sm:text-[22px] ml-1 sm:ml-2">
                           <IoMdArrowDropright />
                         </span>
                       </span>
@@ -312,15 +304,6 @@ export const CustomWalletButton = () => {
                   </motion.button>
                 ))}
               </div>
-              {/* <motion.button
-                variants={itemVariants}
-                whileHover={{ scale: 0.9 }}
-                whileTap={{ scale: 0.8 }}
-                onClick={() => setOpen(false)}
-                className="mt-4 text-white underline"
-              >
-                Close
-              </motion.button> */}
             </motion.div>
           </div>
         )}
